@@ -32,10 +32,7 @@ async def help(ctx):
     embed.add_field(name="!cru", value="Get the price of Curium", inline=False)
     embed.add_field(name="!btc", value="Get the price of bitcoin", inline=False)
     embed.add_field(name="!ltc", value="Get the price of Litecoin", inline=False)
-    embed.add_field(name="!difficulty", value="Get the current CRU difficulty ", inline=False)
-    embed.add_field(name="!blockcount", value="Get the current CRU blockcount ", inline=False)
-    embed.add_field(name="!hashrate", value="Get the current CRU Network Hashrate (h/s) ", inline=False)
-    embed.add_field(name="!supply", value="Get the current CRU supply ", inline=False)
+
     embed.add_field(name="!installguide", value="Get the Masternode install guide ", inline=False)
     embed.add_field(name="which coin gunna do goddest", value="type CRU", inline=False)
     await bot.say(embed=embed)
