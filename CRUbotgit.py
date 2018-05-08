@@ -116,6 +116,14 @@ async def cruinfo(ctx):
 
 
 
+@bot.command(pass_context=True)
+async def balance(bal : str):
+    btcapi = 'explorer.curiumofficial.com/ext/getbalance/' + bal
+    btcprice = requests.get(btcapi)
+    value = btcprice.json()
+    await bot.say("The Balance of that address is : " + value + " CRU")
+                          
+                          
 
 # listen for someone to say cru then message them 
 @bot.listen()
