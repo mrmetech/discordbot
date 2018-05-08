@@ -32,7 +32,7 @@ async def help(ctx):
     embed.add_field(name="!cru", value="Get the price of Curium", inline=False)
     embed.add_field(name="!btc", value="Get the price of bitcoin", inline=False)
     embed.add_field(name="!ltc", value="Get the price of Litecoin", inline=False)
-
+    embed.add_field(name="!balance", value="Get the balance of a curium address !balance address", inline=False)
     embed.add_field(name="!installguide", value="Get the Masternode install guide ", inline=False)
     embed.add_field(name="which coin gunna do goddest", value="type CRU", inline=False)
     await bot.say(embed=embed)
@@ -121,8 +121,11 @@ async def balance(bal : str):
     btcapi = 'explorer.curiumofficial.com/ext/getbalance/' + bal
     btcprice = requests.get(btcapi)
     value = btcprice.json()
-    await bot.say("The Balance of that address is : " + value + " CRU")
-                          
+    await bot
+    embed = discord.Embed(title="Here is price information for Curium", color=0x42f4cb)
+    embed.add_field(name="Balance ", value= "The Balance of that address is " + value + " CRU", inline=False)
+
+    await bot.say(embed=embed)
                           
 
 # listen for someone to say cru then message them 
