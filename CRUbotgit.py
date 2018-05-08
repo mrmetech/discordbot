@@ -30,7 +30,6 @@ async def help(ctx):
     embed.add_field(name="!help", value="Get help message", inline=False)
     embed.add_field(name="!ping", value="Get a bot responce", inline=False)
     embed.add_field(name="!cru", value="Get the price of Curium", inline=False)
-    embed.add_field(name="!cruinfo", value="information on the curium network", inline=False) 
     embed.add_field(name="!btc", value="Get the price of bitcoin", inline=False)
     embed.add_field(name="!ltc", value="Get the price of Litecoin", inline=False)
     embed.add_field(name="!balance", value="Get the balance of a curium address !balance address", inline=False)
@@ -118,13 +117,14 @@ async def cruinfo(ctx):
 
 
 @bot.command(pass_context=True)
-async def balance(bal : str):
-    btcapi = 'explorer.curiumofficial.com/ext/getbalance/' + bal
-    btcprice = requests.get(btcapi)
-    value = btcprice.json()
-    await bot
-    embed = discord.Embed(title="Here is price information for Curium", color=0x42f4cb)
-    embed.add_field(name="Balance ", value= "The Balance of that address is " + value + " CRU", inline=False)
+async def balance(ctx, bal : str):
+    btcapi = 'http://explorer.curiumofficial.com/ext/getbalance/' 
+    abtcapi = btcapi + bal
+    btcprice = requests.get(abtcapi).json()
+    value = btcprice
+   
+    embed = discord.Embed(title="Here is the amount of curium in a address", color=0x42f4cb)
+    embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " CRU", inline=False)
 
     await bot.say(embed=embed)
                           
@@ -162,4 +162,4 @@ async def updateprice():
 
         
 bot.loop.create_task(updateprice())
-bot.run("code thingy")
+bot.run("")
