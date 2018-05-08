@@ -30,6 +30,7 @@ async def help(ctx):
     embed.add_field(name="!help", value="Get help message", inline=False)
     embed.add_field(name="!ping", value="Get a bot responce", inline=False)
     embed.add_field(name="!cru", value="Get the price of Curium", inline=False)
+    embed.add_field(name="!cruinfo", value="information on the curium network", inline=False) 
     embed.add_field(name="!btc", value="Get the price of bitcoin", inline=False)
     embed.add_field(name="!ltc", value="Get the price of Litecoin", inline=False)
     embed.add_field(name="!balance", value="Get the balance of a curium address !balance address", inline=False)
