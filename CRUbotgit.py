@@ -135,6 +135,17 @@ async def $(ctx, coin : str):
     seaapi_json = requests.get(btcapi)
     seaapi_res = seaapi_json.json()
     price = 'Unknown'
+    name = 'Unknown'
+    rank = 'Unknown'
+    usd = 'Unknown'
+    btc = 'Unknown'
+    eth = 'Unknown'
+    mc = 'Unknown'
+    vol = 'Unknown'
+    sup = 'Unknown'
+    c1h = 'Unknown'
+    c24h = 'Unknown'
+    c7d = 'Unknown'
     for pair in seaapi_res:
         if pair['symbol'] == coin:
             name = pair['name']
@@ -142,7 +153,7 @@ async def $(ctx, coin : str):
             usd = pair['price']
             btc = pair['last']
             eth = pair['last']
-            mc = pair['last']
+            mc = pair['market_cap']
             vol = pair['volume_24h']
             sup = pair['total_supply']
             c1h = pair['percent_change_1h']
