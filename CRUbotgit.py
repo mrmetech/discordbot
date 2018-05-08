@@ -134,6 +134,12 @@ async def $(ctx, coin : str):
     btcapi = 'https://api.coinmarketcap.com/v2/ticker/'
     seaapi_json = requests.get(btcapi)
     seaapi_res = seaapi_json.json()
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/'
+    seaapi_json = requests.get(btcapi)
+    seaapi_res = seaapi_json.json()
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/'
+    seaapi_json = requests.get(btcapi)
+    seaapi_res = seaapi_json.json()
     price = 'Unknown'
     name = 'Unknown'
     rank = 'Unknown'
