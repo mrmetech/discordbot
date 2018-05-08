@@ -128,7 +128,31 @@ async def balance(ctx, bal : str):
     embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " CRU", inline=False)
 
     await bot.say(embed=embed)
-                          
+                   
+@bot.command(pass_context=True)
+async def $(ctx, coin : str):
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/'
+    seaapi_json = requests.get(btcapi)
+    seaapi_res = seaapi_json.json()
+    price = 'Unknown'
+    for pair in seaapi_res:
+        if pair['symbol'] == coin:
+            name = pair['name']
+            rank = pair['rank']
+            usd = pair['price']
+            btc = pair['last']
+            eth = pair['last']
+            mc = pair['last']
+            vol = pair['volume_24h']
+            sup = pair['total_supply']
+            c1h = pair['percent_change_1h']
+            c24h = pair['percent_change_24h']
+            c7d = pair['percent_change_7d']            
+
+    embed = discord.Embed(title="Here is the amount of curium in a address", color=0x42f4cb)
+    embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " CRU", inline=False)
+
+    await bot.say(embed=embed)        
 
 # listen for someone to say cru then message them 
 @bot.listen()
