@@ -107,7 +107,7 @@ async def cruinfo(ctx):
     gmsvalue = str(gmsresponse)
     
     
-    embed = discord.Embed(title="Here is information on the Curium Network, color=0x42f4cb)
+    embed = discord.Embed(title="Here is information on the Curium Network", color=0x42f4cb)
     embed.add_field(name="Current Network Diffculty", value="The Diffuclty is " + gdvalue, inline=False)
     embed.add_field(name="Total Blocks Mined", value="The amount of blocks mined " + gbcvalue, inline=False)
     embed.add_field(name="Network hash rate", value="The Total hashing power on the network " + gnhvalue, inline=False)
