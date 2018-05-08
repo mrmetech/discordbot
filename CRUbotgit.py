@@ -91,35 +91,34 @@ async def ltc(ctx):
 
 # retun the current Currium difficulty
 @bot.command(pass_context=True)
-async def difficulty(ctx):
-    ckapi = 'https://explorer.curiumofficial.com/api/getdifficulty'
-    response = requests.get(ckapi).json()
-    value = str(response)
-    await bot.say("Current CRU difficulty:" + value)
+async def cruinfo(ctx):
+    #difficulty api
+    gdapi = 'https://explorer.curiumofficial.com/api/getdifficulty'
+    gdresponse = requests.get(gdapi).json()
+    gdvalue = str(gdresponse)
+    #block count api
+    gbcapi = 'https://explorer.curiumofficial.com/api/getblockcount'
+    gbcresponse = requests.get(gbcapi).json()
+    gbcvalue = str(gbcresponse)
+    #get network hashps
+    gnhapi = 'https://explorer.curiumofficial.com/api/getnetworkhashps'
+    gnhresponse = requests.get(gnhapi).json()
+    gnhvalue = str(gnhresponse)
+    #getmoney supply
+    gmsapi = 'https://explorer.curiumofficial.com/ext/getmoneysupply'
+    gmsresponse = requests.get(gmsapi).json()
+    gmsvalue = str(gmsresponse)
+    
+    
+    embed = discord.Embed(title="Here is information on the Curium Network, color=0x42f4cb)
+    embed.add_field(name="Current Network Diffculty", value="The Diffuclty is " + gdvalue, inline=False)
+    embed.add_field(name="Total Blocks Mined", value="The amount of blocks mined " + gbcvalue, inline=False)
+    embed.add_field(name="Network hash rate", value="The Total hashing power on the network " + gnhvalue, inline=False)
+    embed.add_field(name="The Total amount of coins", value="The Total amount of coins that have ever been made  " + gmsvalue, inline=False)
+    await bot.say(embed=embed)
 
-# return the current curium block count
-@bot.command(pass_context=True)
-async def blockcount(ctx):
-    ckapi = 'https://explorer.curiumofficial.com/api/getblockcount'
-    response = requests.get(ckapi).json()
-    value = str(response)
-    await bot.say("Current CRU blockcount:" + value)
 
-# return the current curium hashrate
-@bot.command(pass_context=True)
-async def hashrate(ctx):
-    ckapi = 'https://explorer.curiumofficial.com/api/getnetworkhashps'
-    response = requests.get(ckapi).json()
-    value = str(response)
-    await bot.say("Current CRU Network Hashrate (h/s):" + value)
 
-# return the current curium supply amount
-@bot.command(pass_context=True)
-async def supply(ctx):
-    ckapi = 'https://explorer.curiumofficial.com/ext/getmoneysupply'
-    response = requests.get(ckapi).json()
-    value = str(response)
-    await bot.say("Current CRU supply:" + value)
 
 # listen for someone to say cru then message them 
 @bot.listen()
