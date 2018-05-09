@@ -193,7 +193,7 @@ async def updateprice():
         for pair in seaapi_res:
             if pair['market_name'] == 'CRU_BTC':
                 price = pair['last']
-        await client.change_presence(game=discord.Game(name="CRU: " + price))
+        await change_presence(game=discord.Game(name='Skittlely\'s Fun House', type=0))
         await asyncio.sleep(60)
 
 
