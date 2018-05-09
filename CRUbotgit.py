@@ -130,7 +130,7 @@ async def balance(ctx, bal : str):
     await bot.say(embed=embed)
                    
 @bot.command(pass_context=True)
-async def $(ctx, coin : str):
+async def P(ctx, coin : str):
     btcapi = 'https://api.coinmarketcap.com/v2/ticker/?convert=BTC'
     seaapi_json = requests.get(btcapi)
     seaapi_res = seaapi_json.json()
