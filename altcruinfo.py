@@ -35,7 +35,7 @@ async def help(ctx):
     embed.add_field(name="!ltc", value="Get the price of Litecoin", inline=False)
     embed.add_field(name="!coinbal", value="Get the balance of a address !(thecoin)bal address", inline=False)
     embed.add_field(name="!installguide", value="Get the Masternode install guide ", inline=False)
-    embed.add_field(name="which coin gunna do goddest", value="type CRU", inline=False)
+    embed.add_field(name="Coin we Support", value="We Support cru and scriv", inline=False)
     await bot.say(embed=embed)
 
 # ping the bot command to test
@@ -71,7 +71,31 @@ async def cru(ctx):
     embed.add_field(name="Volume in USD ", value="This is the volume $" + str(volvalue), inline=False)
     embed.add_field(name="Volume in BTC ", value="This is the volume BTC " + str(bvolvalue), inline=False)
     await bot.say(embed=embed)
-
+    
+    
+# get the current price of btc
+@bot.command(pass_context=True)
+async def scriv(ctx):
+    gravapi = 'https://graviex.net:443//api/v2/tickers/scrivbtc.json'
+    gravprice = requests.get(gravapi)
+    btcapi = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
+    btcprice = requests.get(btcapi)
+    btcvalue = btcprice.json()['bpi']['USD']['rate']
+    scrivvalue = gravprice.json()['ticker']['last']
+    scrivbtcvol = gravprice.json()['ticker']['volbtc']
+    scrivvol = gravprice.json()['ticker']['vol']
+    scrivusdvol = scrivbtcvol * btcvalue
+    scrivusdvalue = btcvalue * scrivvalue
+    
+    embed = discord.Embed(title="Here is price information for Scriv", color=0x42f4cb)
+    embed.add_field(name="Price USD", value="The price is $ " + str(scrivusdvalue), inline=False)
+    embed.add_field(name="Price BTC", value="The price is BTC " + str(scrivvalue) + " Volume in SCRIV " + str(stockvol), inline=False)
+    embed.add_field(name="Price BTC On Graviex", value="Price BTC " + str(scrivvalue) + " Volume in SCRIV " + str(scrivvol), inline=False)
+    embed.add_field(name="Volume in USD ", value="This is the volume $" + str(scrivusdvol), inline=False)
+    embed.add_field(name="Volume in BTC ", value="This is the volume BTC " + str(scrivbtcvol), inline=False)
+    await bot.say(embed=embed)
+    
+    
 @bot.command(pass_context=True)
 async def btc(ctx):
     btcapi = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
