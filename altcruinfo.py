@@ -36,6 +36,7 @@ async def help(ctx):
     embed.add_field(name="!coinbal", value="Get the balance of a address !(thecoin)bal address", inline=False)
     embed.add_field(name="!installguide", value="Get the Masternode install guide ", inline=False)
     embed.add_field(name="Coin we Support", value="We Support cru and scriv", inline=False)
+    embed.set_footer(text="©curiumofficial ", icon_url=Embed.Empty)
     await bot.say(embed=embed)
 
 # ping the bot command to test
