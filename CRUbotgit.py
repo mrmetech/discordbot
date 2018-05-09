@@ -131,15 +131,12 @@ async def balance(ctx, bal : str):
                    
 @bot.command(pass_context=True)
 async def $(ctx, coin : str):
-    btcapi = 'https://api.coinmarketcap.com/v2/ticker/'
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/?convert=BTC'
     seaapi_json = requests.get(btcapi)
     seaapi_res = seaapi_json.json()
-    btcapi = 'https://api.coinmarketcap.com/v2/ticker/'
-    seaapi_json = requests.get(btcapi)
-    seaapi_res = seaapi_json.json()
-    btcapi = 'https://api.coinmarketcap.com/v2/ticker/'
-    seaapi_json = requests.get(btcapi)
-    seaapi_res = seaapi_json.json()
+    ethapi = 'https://api.coinmarketcap.com/v2/ticker/?convert=ETH'
+    ethapi_json = requests.get(ethapi)
+    ethapi_res = ethapi_json.json()
     price = 'Unknown'
     name = 'Unknown'
     rank = 'Unknown'
@@ -156,15 +153,17 @@ async def $(ctx, coin : str):
         if pair['symbol'] == coin:
             name = pair['name']
             rank = pair['rank']
-            usd = pair['price']
-            btc = pair['last']
-            eth = pair['last']
-            mc = pair['market_cap']
-            vol = pair['volume_24h']
+            usd = pair['quotes']['USD']['price']
+            btc = pair['quotes']['BTC']['price']
+            mc = pair['quotes']['USD']['market_cap']
+            vol = pair['quotes']['USD']['volume_24h']
             sup = pair['total_supply']
-            c1h = pair['percent_change_1h']
-            c24h = pair['percent_change_24h']
-            c7d = pair['percent_change_7d']            
+            c1h = pair['quotes']['USD']['percent_change_1h']
+            c24h = pair['quotes']['USD']['percent_change_24h']
+            c7d = pair['quotes']['USD']['percent_change_7d']  
+    for pair in ethapi_res:
+        if pair['symbol'] == coin:
+            eth = pair['quotes']['ETH']['price']            
 
     embed = discord.Embed(title="Here is the amount of curium in a address", color=0x42f4cb)
     embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " CRU", inline=False)
