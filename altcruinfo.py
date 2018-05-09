@@ -139,10 +139,37 @@ async def cruinfo(ctx):
     embed.add_field(name="The Total amount of coins", value="The Total amount of coins that have ever been made  " + gmsvalue, inline=False)
     await bot.say(embed=embed)
 
+# retun the current Currium difficulty
+@bot.command(pass_context=True)
+async def scrivinfo(ctx):
+    #difficulty api
+    gdapi = 'http://185.243.112.220/api/getdifficulty'
+    gdresponse = requests.get(gdapi).json()
+    gdvalue = str(gdresponse)
+    #block count api
+    gbcapi = 'http://185.243.112.220/api/getblockcount'
+    gbcresponse = requests.get(gbcapi).json()
+    gbcvalue = str(gbcresponse)
+    #get network hashps
+    gnhapi = 'http://185.243.112.220/api/getnetworkhashps'
+    gnhresponse = requests.get(gnhapi).json()
+    gnhvalue = str(gnhresponse)
+    #getmoney supply
+    gmsapi = 'http://185.243.112.220/ext/getmoneysupply'
+    gmsresponse = requests.get(gmsapi).json()
+    gmsvalue = str(gmsresponse)
+    
+    
+    embed = discord.Embed(title="Here is information on the Scrive Network", color=0x42f4cb)
+    embed.add_field(name="Current Network Diffculty", value="The Diffuclty is " + gdvalue, inline=False)
+    embed.add_field(name="Total Blocks Mined", value="The amount of blocks mined " + gbcvalue, inline=False)
+    embed.add_field(name="Network hash rate", value="The Total hashing power on the network " + gnhvalue, inline=False)
+    embed.add_field(name="The Total amount of coins", value="The Total amount of coins that have ever been made  " + gmsvalue, inline=False)
+    await bot.say(embed=embed)
 
 
 @bot.command(pass_context=True)
-async def balance(ctx, bal : str):
+async def crubal(ctx, bal : str):
     btcapi = 'http://explorer.curiumofficial.com/ext/getbalance/' 
     abtcapi = btcapi + bal
     btcprice = requests.get(abtcapi).json()
@@ -152,7 +179,20 @@ async def balance(ctx, bal : str):
     embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " CRU", inline=False)
 
     await bot.say(embed=embed)
-                   
+    
+@bot.command(pass_context=True)
+async def scrivbal(ctx, bal : str):
+    btcapi = 'http://185.243.112.220/ext/getbalance/' 
+    abtcapi = btcapi + bal
+    btcprice = requests.get(abtcapi).json()
+    value = btcprice
+   
+    embed = discord.Embed(title="Here is the amount of curium in a address", color=0x42f4cb)
+    embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " SCRIVE", inline=False)
+
+    await bot.say(embed=embed)
+    
+    
 @bot.command(pass_context=True)
 async def P(ctx, coin : str):
     btcapi = 'https://api.coinmarketcap.com/v2/ticker/?convert=BTC'
