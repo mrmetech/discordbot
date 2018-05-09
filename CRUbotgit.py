@@ -150,7 +150,7 @@ async def P(ctx, coin : str):
     c24h = 'Unknown'
     c7d = 'Unknown'
     for pair in seaapi_res:
-        if pair['symbol'] == coin:
+        if pair['symbol'] == str(coin):
             name = pair['name']
             rank = pair['rank']
             usd = pair['quotes']['USD']['price']
@@ -162,7 +162,7 @@ async def P(ctx, coin : str):
             c24h = pair['quotes']['USD']['percent_change_24h']
             c7d = pair['quotes']['USD']['percent_change_7d']  
     for pair in ethapi_res:
-        if pair['symbol'] == coin:
+        if pair['symbol'] == str(coin):
             eth = pair['quotes']['ETH']['price']            
 
     embed = discord.Embed(title="Here is the amount of curium in a address", color=0x42f4cb)
