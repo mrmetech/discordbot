@@ -188,8 +188,8 @@ async def scrivbal(ctx, bal : str):
     btcprice = requests.get(abtcapi).json()
     value = btcprice
    
-    embed = discord.Embed(title="Here is the amount of curium in a address", color=0x42f4cb)
-    embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " SCRIVE", inline=False)
+    embed = discord.Embed(title="Here is the amount of SCRIV in the address", color=0x42f4cb)
+    embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " SCRIV", inline=False)
 
     await bot.say(embed=embed)
     
