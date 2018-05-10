@@ -29,11 +29,11 @@ async def help(ctx):
     embed = discord.Embed(title="The following are valid commands", color=0x42f4cb)
     embed.add_field(name="!help", value="Get help message", inline=False)
     embed.add_field(name="!ping", value="Get a bot responce", inline=False)
-    embed.add_field(name="!coin", value="Get the price of a coin we support", inline=False)
-    embed.add_field(name="!coininfo", value="information on the curium network", inline=False)
-    embed.add_field(name="!btc", value="Get the price of bitcoin", inline=False)
-    embed.add_field(name="!ltc", value="Get the price of Litecoin", inline=False)
-    embed.add_field(name="!coinbal", value="Get the balance of a address !(thecoin)bal address", inline=False)
+    embed.add_field(name="!<ticker>", value="Put a coins ticker for price info example !btc or !cru", inline=False)
+    embed.add_field(name="!<ticker>info", value="information on the curium network", inline=False)
+
+
+    embed.add_field(name="!<ticker>bal", value="Get the balance of a address !(thecoin)bal address", inline=False)
     embed.add_field(name="!installguide", value="Get the Masternode install guide ", inline=False)
     embed.add_field(name="Coin we Support", value="We Support cru and scriv", inline=False)
     embed.set_footer(text="©curiumofficial ", icon_url='https://i.imgur.com/WN3Z5lX.png')
