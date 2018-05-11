@@ -72,6 +72,7 @@ async def cru(ctx):
     embed.add_field(name="Price BTC On SouthXchange", value="Price BTC " + str(sxcvalue) + " Volume in CRU " + str(sxcvol), inline=False)
     embed.add_field(name="Volume in USD ", value="This is the volume $" + str(volvalue), inline=False)
     embed.add_field(name="Volume in BTC ", value="This is the volume BTC " + str(bvolvalue), inline=False)
+    embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
     await bot.say(embed=embed)
     
     
@@ -94,6 +95,7 @@ async def scriv(ctx):
     embed.add_field(name="Price BTC On Graviex", value="Price BTC " + str(scrivvalue) + " Volume in SCRIV " + str(scrivvol), inline=False)
     embed.add_field(name="Volume in USD ", value="This is the volume $" + str(scrivusdvol), inline=False)
     embed.add_field(name="Volume in BTC ", value="This is the volume BTC " + str(scrivbtcvol), inline=False)
+    embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
     await bot.say(embed=embed)
     
     
@@ -138,6 +140,7 @@ async def cruinfo(ctx):
     embed.add_field(name="Total Blocks Mined", value="The amount of blocks mined " + gbcvalue, inline=False)
     embed.add_field(name="Network hash rate", value="The Total hashing power on the network " + gnhvalue, inline=False)
     embed.add_field(name="The Total amount of coins", value="The Total amount of coins that have ever been made  " + gmsvalue, inline=False)
+    embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
     await bot.say(embed=embed)
 
 # retun the current Currium difficulty
@@ -166,6 +169,7 @@ async def scrivinfo(ctx):
     embed.add_field(name="Total Blocks Mined", value="The amount of blocks mined " + gbcvalue, inline=False)
     embed.add_field(name="Network hash rate", value="The Total hashing power on the network " + gnhvalue, inline=False)
     embed.add_field(name="The Total amount of coins", value="The Total amount of coins that have ever been made  " + gmsvalue, inline=False)
+    embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
     await bot.say(embed=embed)
 
 
@@ -178,7 +182,7 @@ async def crubal(ctx, bal : str):
    
     embed = discord.Embed(title="Here is the amount of curium in a address", color=0x42f4cb)
     embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " CRU", inline=False)
-
+    embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
     await bot.say(embed=embed)
     
 @bot.command(pass_context=True)
@@ -190,7 +194,7 @@ async def scrivbal(ctx, bal : str):
    
     embed = discord.Embed(title="Here is the amount of SCRIV in the address", color=0x42f4cb)
     embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " SCRIV", inline=False)
-
+    embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
     await bot.say(embed=embed)
     
     
