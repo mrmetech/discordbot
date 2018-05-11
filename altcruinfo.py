@@ -3,7 +3,7 @@
 import requests
 import discord
 import asyncio
-import decimal
+from decimal import *
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord import Game
@@ -86,6 +86,7 @@ async def scriv(ctx):
     scrivvalue = gravprice.json()['ticker']['last']
     scrivbtcvol = gravprice.json()['ticker']['volbtc']
     scrivvol = gravprice.json()['ticker']['vol']
+    getcontext().prec = 8
     scrivusdvol = Decimal(scrivbtcvol) * Decimal(btcvalue)
     scrivusdvalue = Decimal(btcvalue) * Decimal(scrivvalue)
     
