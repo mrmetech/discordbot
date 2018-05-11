@@ -3,6 +3,7 @@
 import requests
 import discord
 import asyncio
+import decimal
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord import Game
@@ -77,7 +78,7 @@ async def cru(ctx):
 # get the current price of btc
 @bot.command(pass_context=True)
 async def scriv(ctx):
-    gravapi = 'http://graviex.net:443//api/v2/tickers/scrivbtc.json'
+    gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
     gravprice = requests.get(gravapi, verify=False)
     gravy = json.loads(gravprice.content.strip(‘while(1);’))
     btcapi = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
@@ -86,8 +87,8 @@ async def scriv(ctx):
     scrivvalue = gravy.json()['ticker']['last']
     scrivbtcvol = gravy.json()['ticker']['volbtc']
     scrivvol = gravy.json()['ticker']['vol']
-    scrivusdvol = scrivbtcvol * btcvalue
-    scrivusdvalue = btcvalue * scrivvalue
+    scrivusdvol = Decimal(scrivbtcvol) * Decimal(btcvalue)
+    scrivusdvalue = Decimal(btcvalue) * Decimal(scrivvalue)
     
     embed = discord.Embed(title="Here is price information for Scriv", color=0x42f4cb)
     embed.add_field(name="Price USD", value="The price is $ " + str(scrivusdvalue), inline=False)
