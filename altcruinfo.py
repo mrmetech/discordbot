@@ -80,15 +80,14 @@ async def cru(ctx):
 async def scriv(ctx):
     gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
     gravprice = requests.get(gravapi, verify=False)
-    btcapi = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
     btcprice = requests.get(btcapi)
-    btcvalue = btcprice.json()['bpi']['USD']['rate']
+    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
     scrivvalue = gravprice.json()['ticker']['last']
     scrivbtcvol = gravprice.json()['ticker']['volbtc']
     scrivvol = gravprice.json()['ticker']['vol']
-    getcontext().prec = 8
-    scrivusdvol = Decimal(scrivbtcvol) * Decimal(btcvalue)
-    scrivusdvalue = Decimal(btcvalue) * Decimal(scrivvalue)
+    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
+    scrivusdvalue = float(btcvalue) * float(scrivvalue)
     
     embed = discord.Embed(title="Here is price information for Scriv", color=0x42f4cb)
     embed.add_field(name="Price USD", value="The price is $ " + str(scrivusdvalue), inline=False)
