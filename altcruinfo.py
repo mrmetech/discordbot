@@ -91,7 +91,6 @@ async def scriv(ctx):
     
     embed = discord.Embed(title="Here is price information for Scriv", color=0x42f4cb)
     embed.add_field(name="Price USD", value="The price is $ " + str(scrivusdvalue), inline=False)
-    embed.add_field(name="Price BTC", value="The price is BTC " + str(scrivvalue) + " Volume in SCRIV " + str(scrivvol), inline=False)
     embed.add_field(name="Price BTC On Graviex", value="Price BTC " + str(scrivvalue) + " Volume in SCRIV " + str(scrivvol), inline=False)
     embed.add_field(name="Volume in USD ", value="This is the volume $" + str(scrivusdvol), inline=False)
     embed.add_field(name="Volume in BTC ", value="This is the volume BTC " + str(scrivbtcvol), inline=False)
