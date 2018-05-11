@@ -79,12 +79,13 @@ async def cru(ctx):
 async def scriv(ctx):
     gravapi = 'http://graviex.net:443//api/v2/tickers/scrivbtc.json'
     gravprice = requests.get(gravapi, verify=False)
+    gravy = json.loads(gravprice.content.strip(‘while(1);’))
     btcapi = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
     btcprice = requests.get(btcapi)
     btcvalue = btcprice.json()['bpi']['USD']['rate']
-    scrivvalue = gravprice.json()['ticker']['last']
-    scrivbtcvol = gravprice.json()['ticker']['volbtc']
-    scrivvol = gravprice.json()['ticker']['vol']
+    scrivvalue = gravy.json()['ticker']['last']
+    scrivbtcvol = gravy.json()['ticker']['volbtc']
+    scrivvol = gravy.json()['ticker']['vol']
     scrivusdvol = scrivbtcvol * btcvalue
     scrivusdvalue = btcvalue * scrivvalue
     
