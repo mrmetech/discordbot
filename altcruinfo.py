@@ -78,7 +78,7 @@ async def cru(ctx):
 @bot.command(pass_context=True)
 async def scriv(ctx):
     gravapi = 'http://graviex.net:443//api/v2/tickers/scrivbtc.json'
-    gravprice = requests.get(gravapi)
+    gravprice = requests.get(gravapi, verify=False)
     btcapi = 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
     btcprice = requests.get(btcapi)
     btcvalue = btcprice.json()['bpi']['USD']['rate']
