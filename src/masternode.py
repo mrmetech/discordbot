@@ -9,7 +9,7 @@ def get_rpc():
         config.rpc_config['rpc_host'],
         config.rpc_config['rpc_port']), timeout=config.rpc_config['timeout'])
 		
-def getMasternodeCount():
+def getMnInfoCRU():
     rpc = get_rpc()
 
     mncount = rpc.masternode('count')
