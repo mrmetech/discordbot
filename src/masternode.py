@@ -1,7 +1,8 @@
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 import config
 import json
-
+import asyncio
+import requests
 
 def get_rpc():
     return AuthServiceProxy("http://%s:%s@%s:%s" % (
@@ -17,10 +18,9 @@ def getInfoCRU():
     # let some daemon time to unlock wallet
     time.sleep(1)
 
-	fileName = 'mncount'
-	dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc)
-	dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
-	dailyEarningsCOIN = (((blocksPerADay * mncount) * blockRewardForMasternodes)
+	dailyEarningsUSD = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * costinbtc * usdValueBtc)
+	dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * costinbtc)
+	dailyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
 	
 	weeklyEarningsUSD = dailyEarningsUSD * 7 
 	weeklyEarningsBTC = dailyEarningsBTC  * 7

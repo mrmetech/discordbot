@@ -10,4 +10,8 @@ coinName = {
     "coinName": "scriv"
 }
 
+blocksPerADay = 1999
+
+blockRewardForMasternodes = 4
+
 path = /
