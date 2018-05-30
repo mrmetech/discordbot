@@ -18,25 +18,25 @@ def getInfoCRU():
     # let some daemon time to unlock wallet
     time.sleep(1)
 
-	fileName = 'mncount'
-	dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc)
-	dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
-	dailyEarningsCOIN = (((blocksPerADay * mncount) * blockRewardForMasternodes)
+    fileName = 'mncount'
+    dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc)
+    dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
+    dailyEarningsCOIN = (((blocksPerADay * mncount) * blockRewardForMasternodes)
 	
-	weeklyEarningsUSD = dailyEarningsUSD * 7 
-	weeklyEarningsBTC = dailyEarningsBTC  * 7
-	weeklyEarningsCOIN = dailyEarningsCOIN * 7
+    weeklyEarningsUSD = dailyEarningsUSD * 7 
+    weeklyEarningsBTC = dailyEarningsBTC  * 7
+    weeklyEarningsCOIN = dailyEarningsCOIN * 7
 	
-	monthlyEarningsUSD = weeklyEarningsUSD * 4
-	monthlyEarningsBTC = weeklyEarningsBTC * 4
-	monthlyEarningsCOIN = weeklyEarningsCOIN * 4
+    monthlyEarningsUSD = weeklyEarningsUSD * 4
+    monthlyEarningsBTC = weeklyEarningsBTC * 4
+    monthlyEarningsCOIN = weeklyEarningsCOIN * 4
 	
-	yearlyEarningsUSD = dailyEarningsUSD * 365
-	yearlyEarningsBTC = dailyEarningsBTC * 365
-	yearlyEarningsCOIN = dailyEarningsCOIN * 365
+    yearlyEarningsUSD = dailyEarningsUSD * 365
+    yearlyEarningsBTC = dailyEarningsBTC * 365
+    yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
-	fileName = config.coinName['coin']
-	gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
+    fileName = config.coinName['coin']
+    gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
     gravprice = requests.get(gravapi, verify=False)
     btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
     btcprice = requests.get(btcapi)
@@ -47,17 +47,17 @@ def getInfoCRU():
     scrivusdvol = float(scrivbtcvol) * float(btcvalue)
     scrivusdvalue = float(btcvalue) * float(scrivvalue)
 	
-	data = {}
-	data['mncount'] = mncount
-	data['dEUSD'] = dailyEarningsUSD, data['dEBTC'] = dailyEarningsBTC, data['dECOIN'] = dailyEarningsCOIN
-	data['wEUSD'] = weeklyEarningsUSD, data['wEBTC'] = weeklyEarningsBTC, data['wECOIN'] = weeklyEarningsCOIN
-	data['mEUSD'] = monthlyEarningsUSD, data['mEBTC'] = monthlyEarningsBTC, data['mECOIN'] = monthlyEarningsCOIN
-	data['yEUSD'] = yearlyEarningsUSD, data['yEBTC'] = yearlyEarningsBTC, data['yCOIN'] = yearlyEarningsCOIN
+    data = {}
+    data['mncount'] = mncount
+    data['dEUSD'] = dailyEarningsUSD, data['dEBTC'] = dailyEarningsBTC, data['dECOIN'] = dailyEarningsCOIN
+    data['wEUSD'] = weeklyEarningsUSD, data['wEBTC'] = weeklyEarningsBTC, data['wECOIN'] = weeklyEarningsCOIN
+    data['mEUSD'] = monthlyEarningsUSD, data['mEBTC'] = monthlyEarningsBTC, data['mECOIN'] = monthlyEarningsCOIN
+    data['yEUSD'] = yearlyEarningsUSD, data['yEBTC'] = yearlyEarningsBTC, data['yCOIN'] = yearlyEarningsCOIN
 	
-	data['btcvalue'] = btcvalue, data['scrivvalue'] = scrivvalue, data['scrivbtcvol'] = scrivbtcvol
-	data['scrivvol'] = scrivvol, data['scrivusdvol'] = scrivusdvol, data['scrivusdvalue'] = scrivusdvalue
+    data['btcvalue'] = btcvalue, data['scrivvalue'] = scrivvalue, data['scrivbtcvol'] = scrivbtcvol
+    data['scrivvol'] = scrivvol, data['scrivusdvol'] = scrivusdvol, data['scrivusdvalue'] = scrivusdvalue
 
-	writeToJson(path, fileName, data)
+    writeToJson(path, fileName, data)
 
 		
 		
