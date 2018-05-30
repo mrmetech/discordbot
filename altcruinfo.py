@@ -272,4 +272,4 @@ async def updateprice():
 
         
 bot.loop.create_task(updateprice())
-bot.run("")
+bot.run("NDQzNzc5NDU0MzE4MjgwNzE2.DfDHVQ.Yz9UYILOrFCJXYvqaRutpfMcuOs")
