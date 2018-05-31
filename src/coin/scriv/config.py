@@ -6,9 +6,8 @@ rpc_config = {
     "timeout": 60
 }
 
-coinName = {
-    "coinName": "scriv"
-}
+coinName = "scriv"
+
 
 blocksPerADay = 1999
 
