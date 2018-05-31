@@ -36,8 +36,8 @@ def getInScriv():
 
     dailyEarningsUSD = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue)
     dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
-    dailyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
-    fileName = 'scriv'
+    dailyEarningsCOIN = ((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
+    fileName = config.coinName['coin']
     data = {}
     data['mncount'] = mncount
     data['dEUSD'] = dailyEarningsUSD, data['dEBTC'] = dailyEarningsBTC, data['dECOIN'] = dailyEarningsCOIN
@@ -64,11 +64,11 @@ def getInScriv7():
 			 
     weeklyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 7) 
     weeklyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 7)
-    weeklyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 7)
+    weeklyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 7)
     data = {}
     data['wEUSD'] = weeklyEarningsUSD, data['wEBTC'] = weeklyEarningsBTC, data['wECOIN'] = weeklyEarningsCOIN
 			  
-    fileName = 'scriv'	
+    fileName = config.coinName['coin']	
     writeToJson(path, fileName, data)			  
 			  
 def getInScriv30():
@@ -92,8 +92,8 @@ def getInScriv30():
 			  
     monthlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 30)
     monthlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 30)
-    monthlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 30)
-    fileName = 'scriv'
+    monthlyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 30)
+    fileName = config.coinName['coin']
     data = {}
     data['mEUSD'] = monthlyEarningsUSD, data['mEBTC'] = monthlyEarningsBTC, data['mECOIN'] = monthlyEarningsCOIN		
     writeToJson(path, fileName, data)
@@ -118,9 +118,9 @@ def getInScriv365():
     scrivusdvalue = float(btcvalue) * float(scrivvalue)			   			   
     yearlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 365)
     yearlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 365)
-    yearlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 365)
+    yearlyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 365)
 	
-    fileName = 'scriv'	
+    fileName = config.coinName['coin']	
     data = {}
     data['yEUSD'] = yearlyEarningsUSD, data['yEBTC'] = yearlyEarningsBTC, data['yCOIN'] = yearlyEarningsCOIN
 	
