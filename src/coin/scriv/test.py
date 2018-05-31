@@ -1,4 +1,4 @@
-from scrivInfo import getinfo
+from scrivInfo import *
 
 def run():
   getInfoCRU()
