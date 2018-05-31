@@ -26,9 +26,9 @@ scrivvol = gravprice.json()['ticker']['vol']
 scrivusdvol = float(scrivbtcvol) * float(btcvalue)
 scrivusdvalue = float(btcvalue) * float(scrivvalue)
 
-dailyEarningsUSD = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue * btcvalue)
-dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
-dailyEarningsCOIN = ((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
+dailyEarningsUSD = (((float(config.blocksPerADay) * float(mncount)) * float(config.blockRewardForMasternodes)) * float(scrivvalue) * float(btcvalue))
+dailyEarningsBTC = (((float(config.blocksPerADay) * float(mncount)) * float(config.blockRewardForMasternodes)) * float(scrivvalue))
+dailyEarningsCOIN = ((float(config.blocksPerADay) * float(mncount)) * float(config.blockRewardForMasternodes))
 	
 weeklyEarningsUSD = dailyEarningsUSD * 7 
 weeklyEarningsBTC = dailyEarningsBTC  * 7
@@ -52,9 +52,4 @@ writeToJson(path, fileName, data)
 
 		
 		
-def writeToJson(path, fileName, data):
-	filePathNameWExt = path + '/' + fileName + '.json'
-	with open(filePathNameWExt, 'w') as fp:
-		json.dump(data, fp)
-
 		
