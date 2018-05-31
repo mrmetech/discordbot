@@ -1,9 +1,10 @@
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
-import config
+import configparser
 import json
 import asyncio
 import requests
-
+config = configparser.ConfigParser()
+config.read('config.py')
 def get_rpc():
     return AuthServiceProxy("http://%s:%s@%s:%s" % (
         config.rpc_config['rpc_username'], config.rpc_config['rpc_password'],
