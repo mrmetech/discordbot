@@ -33,36 +33,22 @@ def getInfoCRU():
     dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
     dailyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
 			 
-    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
-    scrivvalue = gravprice.json()['ticker']['last']
-    scrivbtcvol = gravprice.json()['ticker']['volbtc']
-    scrivvol = gravprice.json()['ticker']['vol']
-    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
-    scrivusdvalue = float(btcvalue) * float(scrivvalue)	
+    bbtcvalue = btcprice.json()['data']['quotes']['USD']['price']
 			 
-    weeklyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 7) 
+    weeklyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbtcvalue) * 7) 
     weeklyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 7)
     weeklyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 7)
 	
-    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
-    scrivvalue = gravprice.json()['ticker']['last']
-    scrivbtcvol = gravprice.json()['ticker']['volbtc']
-    scrivvol = gravprice.json()['ticker']['vol']
-    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
-    scrivusdvalue = float(btcvalue) * float(scrivvalue)			  
+    bbbtcvalue = btcprice.json()['data']['quotes']['USD']['price']
 			  
-    monthlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 30)
+			  
+    monthlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbbtcvalue) * 30)
     monthlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 30)
     monthlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 30)
 
-    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
-    scrivvalue = gravprice.json()['ticker']['last']
-    scrivbtcvol = gravprice.json()['ticker']['volbtc']
-    scrivvol = gravprice.json()['ticker']['vol']
-    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
-    scrivusdvalue = float(btcvalue) * float(scrivvalue)			   
-			   
-    yearlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 365)
+    bbbbtcvalue = btcprice.json()['data']['quotes']['USD']['price']
+		   			   
+    yearlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbbbtcvalue) * 365)
     yearlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 365)
     yearlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 365)
 	
