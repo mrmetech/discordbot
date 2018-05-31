@@ -1,5 +1,6 @@
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 import config
+import json
 
 def get_rpc():
     return AuthServiceProxy("http://%s:%s@%s:%s" % (
