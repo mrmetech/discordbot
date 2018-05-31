@@ -14,4 +14,4 @@ blocksPerADay = 1999
 
 blockRewardForMasternodes = 4
 
-path = ~/bot
+path = ""
