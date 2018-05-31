@@ -15,9 +15,9 @@ mncount = rpc.masternode('count')
 time.sleep(1)
 
 
-dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc)
-dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
-dailyEarningsCOIN = ((blocksPerADay * mncount) * blockRewardForMasternodes)
+dailyEarningsUSD = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue * btcvalue)
+dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
+dailyEarningsCOIN = ((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
 	
 weeklyEarningsUSD = dailyEarningsUSD * 7 
 weeklyEarningsBTC = dailyEarningsBTC  * 7
