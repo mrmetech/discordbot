@@ -30,19 +30,19 @@ def getInfoCRU():
     scrivusdvol = float(scrivbtcvol) * float(btcvalue)
     scrivusdvalue = float(btcvalue) * float(scrivvalue)
 
-    dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * btcvalue)
+    dailyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * btcvalue)
     dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
     dailyEarningsCOIN = (((blocksPerADay * mncount) * blockRewardForMasternodes)
 	
-    weeklyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * btcvalue) * 7) 
+    weeklyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * btcvalue) * 7) 
     weeklyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 7)
     weeklyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 7)
 	
-    monthlyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * btcvalue) * 30)
+    monthlyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * btcvalue) * 30)
     monthlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 30)
     monthlyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 30)
 	
-    yearlyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * btcvalue) * 365)
+    yearlyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * btcvalue) * 365)
     yearlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 365)
     yearlyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 365)
 	
