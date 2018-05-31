@@ -5,8 +5,7 @@ import requests
 
 def getInfoCRU():
 
-	
-    fileName = config.coinName['coin']
+
     gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
     gravprice = requests.get(gravapi, verify=False)
     scrivvol = gravprice.json()['ticker']['vol']
