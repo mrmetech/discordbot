@@ -23,17 +23,17 @@ def getInfoCRU():
     dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
     dailyEarningsCOIN = (((blocksPerADay * mncount) * blockRewardForMasternodes)
 	
-    weeklyEarningsUSD = dailyEarningsUSD * 7 
-    weeklyEarningsBTC = dailyEarningsBTC  * 7
-    weeklyEarningsCOIN = dailyEarningsCOIN * 7
+    weeklyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc) * 7) 
+    weeklyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 7)
+    weeklyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 7)
 	
-    monthlyEarningsUSD = weeklyEarningsUSD * 4
-    monthlyEarningsBTC = weeklyEarningsBTC * 4
-    monthlyEarningsCOIN = weeklyEarningsCOIN * 4
+    monthlyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc) * 30)
+    monthlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 30)
+    monthlyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 30)
 	
-    yearlyEarningsUSD = dailyEarningsUSD * 365
-    yearlyEarningsBTC = dailyEarningsBTC * 365
-    yearlyEarningsCOIN = dailyEarningsCOIN * 365
+    yearlyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc) * 365)
+    yearlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 365)
+    yearlyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 365)
 	
     fileName = config.coinName['coin']
     gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
