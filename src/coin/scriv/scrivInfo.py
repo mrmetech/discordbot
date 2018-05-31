@@ -19,6 +19,16 @@ def getInfoCRU():
     time.sleep(1)
 
     fileName = 'mncount'
+    gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
+    gravprice = requests.get(gravapi, verify=False)
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
+    btcprice = requests.get(btcapi)
+    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
+    scrivvalue = gravprice.json()['ticker']['last']
+    scrivbtcvol = gravprice.json()['ticker']['volbtc']
+    scrivvol = gravprice.json()['ticker']['vol']
+    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
+    scrivusdvalue = float(btcvalue) * float(scrivvalue)
     dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc)
     dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
     dailyEarningsCOIN = (((blocksPerADay * mncount) * blockRewardForMasternodes)
