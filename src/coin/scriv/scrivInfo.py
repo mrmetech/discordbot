@@ -14,7 +14,7 @@ mncount = rpc.masternode('count')
 # let some daemon time to unlock wallet
 time.sleep(1)
 
-fileName = config.coinName['coin']
+fileName = config.coinName
 gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
 gravprice = requests.get(gravapi, verify=False)
 btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
