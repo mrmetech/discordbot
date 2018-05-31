@@ -32,15 +32,48 @@ def getInfoCRU():
     dailyEarningsUSD = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue)
     dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
     dailyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
-	
+			 
+    gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
+    gravprice = requests.get(gravapi, verify=False)
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
+    btcprice = requests.get(btcapi)
+    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
+    scrivvalue = gravprice.json()['ticker']['last']
+    scrivbtcvol = gravprice.json()['ticker']['volbtc']
+    scrivvol = gravprice.json()['ticker']['vol']
+    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
+    scrivusdvalue = float(btcvalue) * float(scrivvalue)	
+			 
     weeklyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 7) 
     weeklyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 7)
     weeklyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 7)
 	
+    gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
+    gravprice = requests.get(gravapi, verify=False)
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
+    btcprice = requests.get(btcapi)
+    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
+    scrivvalue = gravprice.json()['ticker']['last']
+    scrivbtcvol = gravprice.json()['ticker']['volbtc']
+    scrivvol = gravprice.json()['ticker']['vol']
+    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
+    scrivusdvalue = float(btcvalue) * float(scrivvalue)			  
+			  
     monthlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 30)
     monthlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 30)
     monthlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 30)
-	
+
+    gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
+    gravprice = requests.get(gravapi, verify=False)
+    btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
+    btcprice = requests.get(btcapi)
+    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
+    scrivvalue = gravprice.json()['ticker']['last']
+    scrivbtcvol = gravprice.json()['ticker']['volbtc']
+    scrivvol = gravprice.json()['ticker']['vol']
+    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
+    scrivusdvalue = float(btcvalue) * float(scrivvalue)			   
+			   
     yearlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 365)
     yearlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 365)
     yearlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 365)
