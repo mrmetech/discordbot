@@ -30,20 +30,20 @@ def getInfoCRU():
     scrivusdvol = float(scrivbtcvol) * float(btcvalue)
     scrivusdvalue = float(btcvalue) * float(scrivvalue)
 
-    dailyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * btcvalue)
-    dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
+    dailyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * btcvalue)
+    dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue)
     dailyEarningsCOIN = (((blocksPerADay * mncount) * blockRewardForMasternodes)
 	
-    weeklyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * btcvalue) * 7) 
-    weeklyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 7)
+    weeklyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * btcvalue) * 7) 
+    weeklyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * 7)
     weeklyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 7)
 	
-    monthlyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * btcvalue) * 30)
-    monthlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 30)
+    monthlyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * btcvalue) * 30)
+    monthlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * 30)
     monthlyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 30)
 	
-    yearlyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * btcvalue) * 365)
-    yearlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc) * 365)
+    yearlyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * btcvalue) * 365)
+    yearlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * 365)
     yearlyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 365)
 	
     fileName = config.coinName['coin']	
