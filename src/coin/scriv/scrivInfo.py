@@ -5,48 +5,47 @@ import asyncio
 import requests
 
 
-def getInfoCRU():
-    rpc = get_rpc()
+rpc = get_rpc()
 
-    mncount = rpc.masternode('count')
+mncount = rpc.masternode('count')
 
-    # let some daemon time to unlock wallet
-    time.sleep(1)
+# let some daemon time to unlock wallet
+time.sleep(1)
 
 
-    dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc)
-    dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
-    dailyEarningsCOIN = ((blocksPerADay * mncount) * blockRewardForMasternodes)
+dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc)
+dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
+dailyEarningsCOIN = ((blocksPerADay * mncount) * blockRewardForMasternodes)
 	
-    weeklyEarningsUSD = dailyEarningsUSD * 7 
-    weeklyEarningsBTC = dailyEarningsBTC  * 7
-    weeklyEarningsCOIN = dailyEarningsCOIN * 7
+weeklyEarningsUSD = dailyEarningsUSD * 7 
+weeklyEarningsBTC = dailyEarningsBTC  * 7
+weeklyEarningsCOIN = dailyEarningsCOIN * 7
 	
-    monthlyEarningsUSD = weeklyEarningsUSD * 4
-    monthlyEarningsBTC = weeklyEarningsBTC * 4
-    monthlyEarningsCOIN = weeklyEarningsCOIN * 4
+monthlyEarningsUSD = weeklyEarningsUSD * 4
+monthlyEarningsBTC = weeklyEarningsBTC * 4
+monthlyEarningsCOIN = weeklyEarningsCOIN * 4
 	
-    yearlyEarningsUSD = dailyEarningsUSD * 365 
-    yearlyEarningsBTC = dailyEarningsBTC * 365
-    yearlyEarningsCOIN = dailyEarningsCOIN * 365
+yearlyEarningsUSD = dailyEarningsUSD * 365 
+yearlyEarningsBTC = dailyEarningsBTC * 365
+yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
-    fileName = config.coinName['coin']
-    gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
-    gravprice = requests.get(gravapi, verify=False)
-    btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
-    btcprice = requests.get(btcapi)
-    btcvalue = btcprice.json()['data']['quotes']['USD']['price']
-    scrivvalue = gravprice.json()['ticker']['last']
-    scrivbtcvol = gravprice.json()['ticker']['volbtc']
-    scrivvol = gravprice.json()['ticker']['vol']
-    scrivusdvol = float(scrivbtcvol) * float(btcvalue)
-    scrivusdvalue = float(btcvalue) * float(scrivvalue)
+fileName = config.coinName['coin']
+gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
+gravprice = requests.get(gravapi, verify=False)
+btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
+btcprice = requests.get(btcapi)
+btcvalue = btcprice.json()['data']['quotes']['USD']['price']
+scrivvalue = gravprice.json()['ticker']['last']
+scrivbtcvol = gravprice.json()['ticker']['volbtc']
+scrivvol = gravprice.json()['ticker']['vol']
+scrivusdvol = float(scrivbtcvol) * float(btcvalue)
+scrivusdvalue = float(btcvalue) * float(scrivvalue)
 	
-    data = {'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'scrivvalue' : scrivvalue, 'scrivbtcvol' : scrivbtcvol, 'scrivvol' : scrivvol, 'scrivusdvol' : scrivusdvol, 'scrivusdvalue' : scrivusdvalue}
+data = {'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'scrivvalue' : scrivvalue, 'scrivbtcvol' : scrivbtcvol, 'scrivvol' : scrivvol, 'scrivusdvol' : scrivusdvol, 'scrivusdvalue' : scrivusdvalue}
     
-    path = config.path
+path = config.path
 
-    writeToJson(path, fileName, data)
+writeToJson(path, fileName, data)
 
 		
 		
