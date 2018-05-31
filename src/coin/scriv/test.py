@@ -1,4 +1,4 @@
 from scrivinfo.py import getinfo
 
-def run:
+def run():
   getinfo()
