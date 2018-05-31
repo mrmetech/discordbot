@@ -18,7 +18,6 @@ def getInfoCRU():
     # let some daemon time to unlock wallet
     time.sleep(1)
 
-    fileName = 'mncount'
     gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
     gravprice = requests.get(gravapi, verify=False)
     btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
@@ -30,21 +29,21 @@ def getInfoCRU():
     scrivusdvol = float(scrivbtcvol) * float(btcvalue)
     scrivusdvalue = float(btcvalue) * float(scrivvalue)
 
-    dailyEarningsUSD = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * btcvalue)
-    dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue)
-    dailyEarningsCOIN = (((blocksPerADay * mncount) * blockRewardForMasternodes)
+    dailyEarningsUSD = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue)
+    dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
+    dailyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
 	
-    weeklyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * btcvalue) * 7) 
-    weeklyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * 7)
-    weeklyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 7)
+    weeklyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 7) 
+    weeklyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 7)
+    weeklyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 7)
 	
-    monthlyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * btcvalue) * 30)
-    monthlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * 30)
-    monthlyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 30)
+    monthlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 30)
+    monthlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 30)
+    monthlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 30)
 	
-    yearlyEarningsUSD = (((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * btcvalue) * 365)
-    yearlyEarningsBTC = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * scrivvalue) * 365)
-    yearlyEarningsCOIN = ((((blocksPerADay * mncount) * blockRewardForMasternodes) * 365)
+    yearlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 365)
+    yearlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 365)
+    yearlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 365)
 	
     fileName = config.coinName['coin']	
     data = {}
