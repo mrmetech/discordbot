@@ -1,10 +1,9 @@
 from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
-import configparser
+import config
 import json
 import asyncio
 import requests
-config = configparser.ConfigParser()
-config.read('config.py')
+
 def get_rpc():
     return AuthServiceProxy("http://%s:%s@%s:%s" % (
         config.rpc_config['rpc_username'], config.rpc_config['rpc_password'],
@@ -38,7 +37,7 @@ def getInScriv():
     dailyEarningsUSD = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue)
     dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
     dailyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
-    fileName = config.coinName['coin']
+    fileName = 'scriv'
     data = {}
     data['mncount'] = mncount
     data['dEUSD'] = dailyEarningsUSD, data['dEBTC'] = dailyEarningsBTC, data['dECOIN'] = dailyEarningsCOIN
@@ -63,13 +62,13 @@ def getInScriv7():
     scrivusdvol = float(scrivbtcvol) * float(btcvalue)
     scrivusdvalue = float(btcvalue) * float(scrivvalue)			 
 			 
-    weeklyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbtcvalue) * 7) 
+    weeklyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 7) 
     weeklyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 7)
     weeklyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 7)
     data = {}
     data['wEUSD'] = weeklyEarningsUSD, data['wEBTC'] = weeklyEarningsBTC, data['wECOIN'] = weeklyEarningsCOIN
 			  
-    fileName = config.coinName['coin']	
+    fileName = 'scriv'	
     writeToJson(path, fileName, data)			  
 			  
 def getInScriv30():
@@ -91,11 +90,10 @@ def getInScriv30():
     scrivusdvol = float(scrivbtcvol) * float(btcvalue)
     scrivusdvalue = float(btcvalue) * float(scrivvalue)				  
 			  
-    monthlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbbtcvalue) * 30)
+    monthlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 30)
     monthlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 30)
     monthlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 30)
-    bbbbtcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
-    fileName = config.coinName['coin']
+    fileName = 'scriv'
     data = {}
     data['mEUSD'] = monthlyEarningsUSD, data['mEBTC'] = monthlyEarningsBTC, data['mECOIN'] = monthlyEarningsCOIN		
     writeToJson(path, fileName, data)
@@ -118,11 +116,11 @@ def getInScriv365():
     scrivvol = gravprice.json()['ticker']['vol']
     scrivusdvol = float(scrivbtcvol) * float(btcvalue)
     scrivusdvalue = float(btcvalue) * float(scrivvalue)			   			   
-    yearlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbbbtcvalue) * 365)
+    yearlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue) * 365)
     yearlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 365)
     yearlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 365)
 	
-    fileName = config.coinName['coin']	
+    fileName = 'scriv'	
     data = {}
     data['yEUSD'] = yearlyEarningsUSD, data['yEBTC'] = yearlyEarningsBTC, data['yCOIN'] = yearlyEarningsCOIN
 	
