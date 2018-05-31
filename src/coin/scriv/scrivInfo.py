@@ -32,7 +32,7 @@ def getInfoCRU():
     dailyEarningsUSD = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue)
     dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
     dailyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
-    bbtcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'	\
+    bbtcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
     bbtcprice = requests.get(bbtcapi)			 
     bbtcvalue = bbtcprice.json()['data']['quotes']['USD']['price']
 			 
