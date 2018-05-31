@@ -56,6 +56,8 @@ def getInfoCRU():
 	
     data['btcvalue'] = btcvalue, data['scrivvalue'] = scrivvalue, data['scrivbtcvol'] = scrivbtcvol
     data['scrivvol'] = scrivvol, data['scrivusdvol'] = scrivusdvol, data['scrivusdvalue'] = scrivusdvalue
+    
+    path = config.path
 
     writeToJson(path, fileName, data)
 
