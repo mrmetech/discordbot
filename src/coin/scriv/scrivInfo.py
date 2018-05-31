@@ -64,6 +64,6 @@ def getInfoCRU():
 		
 		
 def writeToJson(path, fileName, data):
-	filePathNameWExt = './' + path '/' + fileName + '.json'
+	filePathNameWExt = path '/' + fileName + '.json'
 	with open(filePathNameWExt, 'w') as fp:
 		json.dump(data, fp)
