@@ -32,21 +32,21 @@ def getInfoCRU():
     dailyEarningsUSD = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * btcvalue)
     dailyEarningsBTC = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue)
     dailyEarningsCOIN = (((config.blocksPerADay * mncount) * config.blockRewardForMasternodes)
-			 
-    bbtcvalue = btcprice.json()['data']['quotes']['USD']['price']
+    bbtcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'			 
+    bbtcvalue = bbtcprice.json()['data']['quotes']['USD']['price']
 			 
     weeklyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbtcvalue) * 7) 
     weeklyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 7)
     weeklyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 7)
-	
-    bbbtcvalue = btcprice.json()['data']['quotes']['USD']['price']
+    bbbtcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'	
+    bbbtcvalue = bbbtcprice.json()['data']['quotes']['USD']['price']
 			  
 			  
     monthlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbbtcvalue) * 30)
     monthlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 30)
     monthlyEarningsCOIN = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * 30)
-
-    bbbbtcvalue = btcprice.json()['data']['quotes']['USD']['price']
+    bbbtcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
+    bbbbtcvalue = bbbtcprice.json()['data']['quotes']['USD']['price']
 		   			   
     yearlyEarningsUSD = (((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * bbbbtcvalue) * 365)
     yearlyEarningsBTC = ((((config.blocksPerADay * mncount) * config.blockRewardForMasternodes) * scrivvalue) * 365)
