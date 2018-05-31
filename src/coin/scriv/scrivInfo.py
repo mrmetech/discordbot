@@ -18,7 +18,7 @@ def getInfoCRU():
     # let some daemon time to unlock wallet
     time.sleep(1)
 
-	fileName = 'mncount'
+
 	dailyEarningsUSD = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc * usdValueBtc)
 	dailyEarningsBTC = (((blocksPerADay * mncount) * blockRewardForMasternodes) * costinbtc)
 	dailyEarningsCOIN = ((blocksPerADay * mncount) * blockRewardForMasternodes)
