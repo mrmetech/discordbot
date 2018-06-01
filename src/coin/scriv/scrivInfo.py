@@ -26,9 +26,9 @@ scrivvol = gravprice.json()['ticker']['vol']
 scrivusdvol = float(scrivbtcvol) * float(btcvalue)
 scrivusdvalue = float(btcvalue) * float(scrivvalue)
 
-dailyEarningsUSD = (((float(config.blocksPerADay) * float(mncount)) * float(config.blockRewardForMasternodes)) * float(scrivvalue) * float(btcvalue))
-dailyEarningsBTC = (((float(config.blocksPerADay) * float(mncount)) * float(config.blockRewardForMasternodes)) * float(scrivvalue))
-dailyEarningsCOIN = ((float(config.blocksPerADay) * float(mncount)) * float(config.blockRewardForMasternodes))
+dailyEarningsUSD = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * float(scrivvalue) * float(btcvalue))
+dailyEarningsBTC = (((1 / float(mncount)) * float(config.blockReward)) * * float(config.blocksPerADay)  * float(config.blockRewardForMasternodes) * float(scrivvalue))
+dailyEarningsCOIN = ((1 / float(mncount)) *  float(config.blockReward) * float(config.blocksPerADay) float(config.blockRewardForMasternodes))
 	
 weeklyEarningsUSD = dailyEarningsUSD * 7 
 weeklyEarningsBTC = dailyEarningsBTC  * 7
