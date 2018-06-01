@@ -9,8 +9,8 @@ rpc_config = {
 coinName = "scriv"
 
 
-blocksPerADay = 1999
+blocksPerADay = 2880
 
-blockRewardForMasternodes = 4
+blockRewardForMasternodes = 12
 
 path = ""
