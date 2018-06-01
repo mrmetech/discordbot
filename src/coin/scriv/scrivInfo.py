@@ -27,7 +27,7 @@ scrivusdvol = float(scrivbtcvol) * float(btcvalue)
 scrivusdvalue = float(btcvalue) * float(scrivvalue)
 
 dailyEarningsUSD = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * float(scrivvalue) * float(btcvalue))
-dailyEarningsBTC = (((1 / float(mncount)) * float(config.blockReward)) * * float(config.blocksPerADay)  * float(config.blockRewardForMasternodes) * float(scrivvalue))
+dailyEarningsBTC = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay)  * float(config.blockRewardForMasternodes) * float(scrivvalue))
 dailyEarningsCOIN = ((1 / float(mncount)) *  float(config.blockReward) * float(config.blocksPerADay) float(config.blockRewardForMasternodes))
 	
 weeklyEarningsUSD = dailyEarningsUSD * 7 
