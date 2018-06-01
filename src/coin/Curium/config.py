@@ -1,17 +1,17 @@
 rpc_config = {
-    "rpc_port": "22545",
-    "rpc_host": "127.0.10.1",
+    "rpc_port": "22134",
+    "rpc_host": "127.0.12.1",
     "rpc_username": "dogecoinrpc",
     "rpc_password": "dogecoinpasword",
     "timeout": 60
 }
 
-coinName = "scriv"
+coinName = "curium"
 
 
-blocksPerADay = 2880
+blocksPerADay = 1440
 
-blockRewardForMasternodes = 0.30
-blockReward = 40
+blockRewardForMasternodes = 0.6
+blockReward = 5
 
 
