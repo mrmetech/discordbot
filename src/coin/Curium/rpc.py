@@ -8,6 +8,6 @@ def get_rpc():
         config.rpc_config['rpc_host'],
         config.rpc_config['rpc_port']), timeout=config.rpc_config['timeout'])
 def writeToJson(path, fileName, data):
-	filePathNameWExt = path + '/' + fileName + '.json'
+	filePathNameWExt = '../../coinData/' + fileName + '.json'
 	with open(filePathNameWExt, 'w') as fp:
 		json.dump(data, fp, indent=4)
