@@ -29,6 +29,7 @@ scrivusdvalue = float(btcvalue) * float(scrivvalue)
 dailyEarningsUSD = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * float(scrivvalue) * float(btcvalue))
 dailyEarningsBTC = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay)  * float(config.blockRewardForMasternodes) * float(scrivvalue))
 dailyEarningsCOIN = ((1 / float(mncount)) *  float(config.blockReward) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes))
+mnroi = ((1 / float(mncount)) *  float(config.blockReward) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * 365) / 1000
 	
 weeklyEarningsUSD = dailyEarningsUSD * 7 
 weeklyEarningsBTC = dailyEarningsBTC  * 7
@@ -44,7 +45,7 @@ yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
 
 	
-data = {'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'scrivvalue' : scrivvalue, 'scrivbtcvol' : scrivbtcvol, 'scrivvol' : scrivvol, 'scrivusdvol' : scrivusdvol, 'scrivusdvalue' : scrivusdvalue}
+data = {'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'scrivvalue' : scrivvalue, 'scrivbtcvol' : scrivbtcvol, 'scrivvol' : scrivvol, 'scrivusdvol' : scrivusdvol, 'scrivusdvalue' : scrivusdvalue}
     
 path = config.path
 
