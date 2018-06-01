@@ -14,4 +14,4 @@ blocksPerADay = 2880
 blockRewardForMasternodes = 0.30
 blockReward = 40
 
-path = ""
+
