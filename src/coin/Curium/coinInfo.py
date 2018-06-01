@@ -29,7 +29,6 @@ chanvol = stockprice.json()['tickers'][2]['volume']
 cruusdvalue = stockprice.json()['market_data']['current_price']['usd']
 volvalue = stockprice.json()['market_data']['total_volume']['usd']
 bvolvalue = stockprice.json()['market_data']['total_volume']['btc']
-usdvalue = float(btcvalue) * float(coinvalue)
 
 dailyEarningsUSD = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * float(coinvalue) * float(btcvalue))
 dailyEarningsBTC = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay)  * float(config.blockRewardForMasternodes) * float(coinvalue))
@@ -54,7 +53,7 @@ data = {'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC
 	'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 
 	'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 
 	'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 
-	'btcvalue' : btcvalue, 'bvolvalue' : bvolvalue, 'volvalue' : volvalue, 'usdvalue' : usdvalue}
+	'btcvalue' : btcvalue, 'bvolvalue' : bvolvalue, 'volvalue' : volvalue, 'usdvalue' : cruusdvalue}
     
 path = config.path
 
