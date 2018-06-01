@@ -53,23 +53,17 @@ async def installguide(ctx):
 # get the current price of btc
 @bot.command(pass_context=True)
 async def cru(ctx):
-    stockapi = 'https://api.coingecko.com/api/v3/coins/curium.json'
-    stockprice = requests.get(stockapi)
-    stockvalue = stockprice.json()['tickers'][0]['converted_last']['btc']
-    sxcvalue = stockprice.json()['tickers'][1]['converted_last']['btc']
-    chanvalue = stockprice.json()['tickers'][2]['converted_last']['btc']
+    with open('src/coinData/curium.json', 'r') as f:
+        datastore = json.load(f)
+    stockvalue = datastore["coinvalue"]
     stockvol = stockprice.json()['tickers'][0]['volume']  
-    sxcvol = stockprice.json()['tickers'][1]['volume']
-    chanvol = stockprice.json()['tickers'][2]['volume']
-    cruusdvalue = stockprice.json()['market_data']['current_price']['usd']
-    volvalue = stockprice.json()['market_data']['total_volume']['usd']
-    bvolvalue = stockprice.json()['market_data']['total_volume']['btc']
+    cruusdvalue = datastore["usdvalue"]
+    volvalue = datastore["volvalue"]
+    bvolvalue = datastore["bvolvalue"]
     
     embed = discord.Embed(title="Here is price information for Curium", color=0x42f4cb)
     embed.add_field(name="Price USD", value="The price is $" + str(cruusdvalue), inline=False)
-    embed.add_field(name="Price BTC On Stock.exchange", value="Price BTC " + str(stockvalue) + " Volume in CRU " + str(stockvol), inline=False)
-    embed.add_field(name="Price BTC On Crypto Hub", value="Price BTC " + str(chanvalue) + " Volume in CRU " + str(chanvol), inline=False)
-    embed.add_field(name="Price BTC On SouthXchange", value="Price BTC " + str(sxcvalue) + " Volume in CRU " + str(sxcvol), inline=False)
+    embed.add_field(name="Price BTC", value="The price is " + str(stockvalue) + " BTC", inline=False)
     embed.add_field(name="Volume in USD ", value="This is the volume $" + str(volvalue), inline=False)
     embed.add_field(name="Volume in BTC ", value="This is the volume BTC " + str(bvolvalue), inline=False)
     embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
