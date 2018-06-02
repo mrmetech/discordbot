@@ -178,6 +178,28 @@ async def crubal(ctx, bal : str):
     embed.add_field(name="Balance ", value= "The Balance of that address is " + str(value) + " CRU", inline=False)
     embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
     await bot.say(embed=embed)
+# get the current price of btc
+@bot.command(pass_context=True)
+async def scrivmn(ctx):
+    with open('src/coinData/scriv.json', 'r') as f:
+        datastore = json.load(f)
+    roi = datastore["mnroi"]
+    mncount = datastore["mncount"]
+    dailyrewardcoin = datastore["dECOIN"]
+    dailyrewardusd = datastore["dEUSD"]
+    monthlyrewardcoin = datastore["mECOIN"]
+    monthlyrewardusd = datastore["mEUSD"] 
+    yearlyrewardcoin = datastore["yECOIN"]
+    yearlyrewardusd = datastore["yEUSD"]   
+    
+    embed = discord.Embed(title="Here is Masternode information for Scriv", color=0x42f4cb)
+    embed.add_field(name="ROI ", value="The roi is  " + str(roi) + " %", inline=False)
+    embed.add_field(name="Daily Reward ", value="You will get " + str(dailyrewardcoin) + " coins a day and " + str(dailyrewardusd) + " USD a day", inline=False)
+    embed.add_field(name="Monthly Reward ", value="You will get " + str(monthlyrewardcoin) + " coins a month and " + str(monthlyrewardusd) + " USD a month", inline=False)
+    embed.add_field(name="Yearly Reward ", value="You will get " + str(yearlyrewardcoin) + " coins a year and " + str(yearlyrewardusd) + " USD a year", inline=False)
+    embed.add_field(name="Masternode Count", value="There are " + str(mncount) + " masternodes", inline=False)
+    embed.set_footer(text="curiumofficial.com | !help ", icon_url='https://i.imgur.com/WN3Z5lX.png')
+    await bot.say(embed=embed)
     
 @bot.command(pass_context=True)
 async def scrivbal(ctx, bal : str):
