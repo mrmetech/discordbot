@@ -47,9 +47,9 @@ yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
 data = {'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'scrivvalue' : scrivvalue, 'scrivbtcvol' : scrivbtcvol, 'scrivvol' : scrivvol, 'scrivusdvol' : scrivusdvol, 'scrivusdvalue' : scrivusdvalue}
     
-path = config.path
 
-writeToJson(path, fileName, data)
+
+writeToJson(fileName, data)
 
 		
 		
