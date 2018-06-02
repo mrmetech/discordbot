@@ -55,7 +55,6 @@ data = {'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC
 	'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 
 	'btcvalue' : btcvalue, 'bvolvalue' : bvolvalue, 'volvalue' : volvalue, 'usdvalue' : cruusdvalue}
     
-path = config.path
 
 writeToJson(path, fileName, data)
 
