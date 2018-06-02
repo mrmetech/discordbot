@@ -190,7 +190,7 @@ async def scrivmn(ctx):
     dailyrewardusd = datastore["dEUSD"]
     monthlyrewardcoin = datastore["mECOIN"]
     monthlyrewardusd = datastore["mEUSD"] 
-    yearlyrewardcoin = datastore["yECOIN"]
+    yearlyrewardcoin = datastore["yCOIN"]
     yearlyrewardusd = datastore["yEUSD"]   
     
     embed = discord.Embed(title="Here is Masternode information for Scriv", color=0x42f4cb)
