@@ -7,6 +7,7 @@ from decimal import *
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord import Game
+import json
 
 # "!" is the command trigger
 bot = commands.Bot(command_prefix='!')
