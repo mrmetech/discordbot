@@ -6,12 +6,12 @@ rpc_config = {
     "timeout": 60
 }
 
-coinName = "curium"
+coinName = "phore"
 
 
 blocksPerADay = 1440
 
 blockRewardForMasternodes = 0.6
-blockReward = 5
+blockReward = 7
 
 
