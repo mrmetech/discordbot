@@ -30,6 +30,7 @@ chanvol = stockprice.json()['tickers'][2]['volume']
 coinusdvalue = stockprice.json()['market_data']['current_price']['usd']
 volvalue = stockprice.json()['market_data']['total_volume']['usd']
 bvolvalue = stockprice.json()['market_data']['total_volume']['btc']
+mnPrice = float(coinusdvalue) * float(mnCost)
 
 dailyEarningsUSD = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * float(coinvalue) * float(btcvalue))
 dailyEarningsBTC = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay)  * float(config.blockRewardForMasternodes) * float(coinvalue))
@@ -50,7 +51,7 @@ yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
 
 	
-data = {'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN,
+data = {'mnPrice' : mnPrice, 'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN,
 	'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 
 	'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 
 	'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 
