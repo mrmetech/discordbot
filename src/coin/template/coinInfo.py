@@ -20,14 +20,14 @@ gravprice = requests.get(gravapi, verify=False)
 btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
 btcprice = requests.get(btcapi)
 btcvalue = btcprice.json()['data']['quotes']['USD']['price']
-scrivvalue = gravprice.json()['ticker']['last']
-scrivbtcvol = gravprice.json()['ticker']['volbtc']
-scrivvol = gravprice.json()['ticker']['vol']
-scrivusdvol = float(scrivbtcvol) * float(btcvalue)
-scrivusdvalue = float(btcvalue) * float(scrivvalue)
+coinvalue = gravprice.json()['ticker']['last']
+coinbtcvol = gravprice.json()['ticker']['volbtc']
+coinvol = gravprice.json()['ticker']['vol']
+coinusdvol = float(coinbtcvol) * float(btcvalue)
+coinusdvalue = float(btcvalue) * float(coinvalue)
 
-dailyEarningsUSD = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * float(scrivvalue) * float(btcvalue))
-dailyEarningsBTC = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay)  * float(config.blockRewardForMasternodes) * float(scrivvalue))
+dailyEarningsUSD = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * float(coinvalue) * float(btcvalue))
+dailyEarningsBTC = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay)  * float(config.blockRewardForMasternodes) * float(coinvalue))
 dailyEarningsCOIN = ((1 / float(mncount)) *  float(config.blockReward) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes))
 mnroi = ((1 / float(mncount)) *  float(config.blockReward) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * 365) / 1000
 	
@@ -45,7 +45,7 @@ yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
 
 	
-data = {'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'scrivvalue' : scrivvalue, 'scrivbtcvol' : scrivbtcvol, 'scrivvol' : scrivvol, 'scrivusdvol' : scrivusdvol, 'scrivusdvalue' : scrivusdvalue}
+data = {'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'coinvalue' : coinvalue, 'coinbtcvol' : coinbtcvol, 'coinvol' : coinvol, 'coinusdvol' : coinusdvol, 'coinusdvalue' : coinusdvalue}
     
 
 
