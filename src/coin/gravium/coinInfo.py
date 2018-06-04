@@ -17,6 +17,7 @@ btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
 btcprice = requests.get(btcapi)
 btcvalue = btcprice.json()['data']['quotes']['USD']['price']
 
+mnCost = config.mnCost
 fileName = config.coinName
 stockapi = 'https://api.coingecko.com/api/v3/coins/curium.json'
 stockprice = requests.get(stockapi)
@@ -49,7 +50,7 @@ yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
 
 	
-data = {'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN,
+data = {'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN,
 	'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 
 	'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 
 	'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 

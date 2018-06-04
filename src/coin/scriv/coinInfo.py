@@ -14,6 +14,7 @@ mncount = rpc.masternode('count')
 # let some daemon time to unlock wallet
 time.sleep(1)
 
+mnCost = config.mnCost
 fileName = config.coinName
 gravapi = 'https://graviex.net/api/v2/tickers/coinbtc.json'
 gravprice = requests.get(gravapi, verify=False)
@@ -45,7 +46,7 @@ yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
 
 	
-data = {'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'coinvalue' : coinvalue, 'coinbtcvol' : coinbtcvol, 'coinvol' : coinvol, 'coinusdvol' : coinusdvol, 'coinusdvalue' : coinusdvalue}
+data = {'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'coinvalue' : coinvalue, 'coinbtcvol' : coinbtcvol, 'coinvol' : coinvol, 'coinusdvol' : coinusdvol, 'coinusdvalue' : coinusdvalue}
     
 writeToJson(fileName, data)
 

@@ -15,3 +15,4 @@ blockRewardForMasternodes = 0.5475
 blockReward = 7
 
 
+mnCost = 1000
