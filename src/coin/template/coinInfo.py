@@ -15,7 +15,7 @@ mncount = rpc.masternode('count')
 time.sleep(1)
 
 fileName = config.coinName
-gravapi = 'https://graviex.net/api/v2/tickers/scrivbtc.json'
+gravapi = 'https://graviex.net/api/v2/tickers/coinbtc.json'
 gravprice = requests.get(gravapi, verify=False)
 btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
 btcprice = requests.get(btcapi)

@@ -26,7 +26,7 @@ chanvalue = stockprice.json()['tickers'][2]['converted_last']['btc']
 stockvol = stockprice.json()['tickers'][0]['volume']  
 sxcvol = stockprice.json()['tickers'][1]['volume']
 chanvol = stockprice.json()['tickers'][2]['volume']
-cruusdvalue = stockprice.json()['market_data']['current_price']['usd']
+coinusdvalue = stockprice.json()['market_data']['current_price']['usd']
 volvalue = stockprice.json()['market_data']['total_volume']['usd']
 bvolvalue = stockprice.json()['market_data']['total_volume']['btc']
 
@@ -53,7 +53,7 @@ data = {'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : daily
 	'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 
 	'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 
 	'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 
-	'btcvalue' : btcvalue, 'bvolvalue' : bvolvalue, 'volvalue' : volvalue, 'usdvalue' : cruusdvalue}
+	'btcvalue' : btcvalue, 'bvolvalue' : bvolvalue, 'volvalue' : volvalue, 'usdvalue' : coinusdvalue}
 
 writeToJson(fileName, data)
 
