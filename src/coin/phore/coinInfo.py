@@ -56,6 +56,7 @@ data = {'mnPrice' : mnPrice, 'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnr
 	'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 
 	'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 
 	'btcvalue' : btcvalue, 'bvolvalue' : bvolvalue, 'volvalue' : volvalue, 'usdvalue' : coinusdvalue}
+    
 
 writeToJson(fileName, data)
 

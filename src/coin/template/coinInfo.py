@@ -13,19 +13,23 @@ mncount = rpc.masternode('count')
 
 # let some daemon time to unlock wallet
 time.sleep(1)
-
-mnCost = config.mnCost
-fileName = config.coinName
-gravapi = 'https://graviex.net/api/v2/tickers/coinbtc.json'
-gravprice = requests.get(gravapi, verify=False)
 btcapi = 'https://api.coinmarketcap.com/v2/ticker/1/'
 btcprice = requests.get(btcapi)
 btcvalue = btcprice.json()['data']['quotes']['USD']['price']
-coinvalue = gravprice.json()['ticker']['last']
-coinbtcvol = gravprice.json()['ticker']['volbtc']
-coinvol = gravprice.json()['ticker']['vol']
-coinusdvol = float(coinbtcvol) * float(btcvalue)
-coinusdvalue = float(btcvalue) * float(coinvalue)
+
+mnCost = config.mnCost
+fileName = config.coinName
+stockapi = 'https://api.coingecko.com/api/v3/coins/curium.json'
+stockprice = requests.get(stockapi)
+coinvalue = stockprice.json()['tickers'][0]['converted_last']['btc']
+sxcvalue = stockprice.json()['tickers'][1]['converted_last']['btc']
+chanvalue = stockprice.json()['tickers'][2]['converted_last']['btc']
+stockvol = stockprice.json()['tickers'][0]['volume']  
+sxcvol = stockprice.json()['tickers'][1]['volume']
+chanvol = stockprice.json()['tickers'][2]['volume']
+coinusdvalue = stockprice.json()['market_data']['current_price']['usd']
+volvalue = stockprice.json()['market_data']['total_volume']['usd']
+bvolvalue = stockprice.json()['market_data']['total_volume']['btc']
 mnPrice = float(coinusdvalue) * float(mnCost)
 
 dailyEarningsUSD = (((1 / float(mncount)) * float(config.blockReward)) * float(config.blocksPerADay) * float(config.blockRewardForMasternodes) * float(coinvalue) * float(btcvalue))
@@ -47,9 +51,12 @@ yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
 
 	
-data = {'mnPrice' : mnPrice, 'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'coinvalue' : coinvalue, 'coinbtcvol' : coinbtcvol, 'coinvol' : coinvol, 'usdvol' : coinusdvol, 'usdvalue' : coinusdvalue}
+data = {'mnPrice' : mnPrice, 'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN,
+	'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 
+	'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 
+	'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 
+	'btcvalue' : btcvalue, 'bvolvalue' : bvolvalue, 'volvalue' : volvalue, 'usdvalue' : coinusdvalue}
     
-
 
 writeToJson(fileName, data)
 

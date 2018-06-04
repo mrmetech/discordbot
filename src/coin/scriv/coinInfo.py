@@ -47,7 +47,7 @@ yearlyEarningsCOIN = dailyEarningsCOIN * 365
 	
 
 	
-data = {'mnPrice' : mnPrice, 'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'coinvalue' : coinvalue, 'coinbtcvol' : coinbtcvol, 'coinvol' : coinvol, 'coinusdvol' : coinusdvol, 'coinusdvalue' : coinusdvalue}
+data = {'mnPrice' : mnPrice, 'mnCost' : mnCost, 'coin' : fileName, 'mnroi' : mnroi, 'mncount' : mncount, 'dEUSD' : dailyEarningsUSD, 'dEBTC' : dailyEarningsBTC, 'dECOIN' : dailyEarningsCOIN, 'wEUSD' : weeklyEarningsUSD, 'wEBTC' : weeklyEarningsBTC, 'wECOIN' : weeklyEarningsCOIN, 'mEUSD' : monthlyEarningsUSD, 'mEBTC' : monthlyEarningsBTC, 'mECOIN' : monthlyEarningsCOIN, 'yEUSD' : yearlyEarningsUSD, 'yEBTC' : yearlyEarningsBTC, 'yCOIN' : yearlyEarningsCOIN, 'btcvalue' : btcvalue, 'coinvalue' : coinvalue, 'coinbtcvol' : coinbtcvol, 'coinvol' : coinvol, 'volvalue' : usdvol, 'coinusdvalue' : coinusdvalue}
     
 writeToJson(fileName, data)
 
